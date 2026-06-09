@@ -37,16 +37,18 @@
    Change a name or a color here and it updates everywhere automatically.
    Colors are inspired by a Rubik's cube + bright summer tones.
 ---------------------------------------------------------------------------- */
+// Add `inLegend: false` to any entry you want to USE on the calendar but HIDE
+// from the color key at the top of the page.
 const CAREGIVERS = {
   taylor:    { name: 'Taylor',                color: '#19B4C4' }, // teal  (primary nanny)
   jackie:    { name: 'Jackie',                color: '#8E58D8' }, // purple
   camp:      { name: 'Summer Camp',           color: '#FFB400' }, // sunshine yellow
-  gabe:      { name: 'Gabe (with Phoenix)',   color: '#33B66B' }, // green
+  gabe:      { name: 'Gabe (with Phoenix)',   color: '#33B66B', inLegend: false }, // green
   pixie:     { name: 'Pixie',                 color: '#FF6FAE' }, // pink
-  shauna:    { name: 'Shauna',                color: '#FF5A4D' }, // coral red
-  handoff:   { name: 'Handoff / Transition',  color: '#6B7A8F' }, // slate
-  off:       { name: 'OFF — no coverage',     color: '#B9C2CC' }, // gray
-  milestone: { name: 'Milestone',             color: '#FF8A3D' }, // orange
+  shauna:    { name: 'Shauna',                color: '#FF5A4D', inLegend: false }, // coral red
+  handoff:   { name: 'Handoff / Transition',  color: '#6B7A8F', inLegend: false }, // slate
+  off:       { name: 'OFF — no coverage',     color: '#B9C2CC', inLegend: false }, // gray
+  milestone: { name: 'Milestone',             color: '#FF8A3D', inLegend: false }, // orange
 };
 
 
@@ -135,7 +137,9 @@ const SCHEDULE = {
     { who: 'off',    start: null,    end: null,    title: 'Taylor OFF', note: '' },
     { who: 'jackie', start: '07:30', end: null,    title: 'Pickup from Gabe',
       note: 'Jackie picks up Phoenix from Gabe at 7:30 AM, then stays late that evening.' } ],
-  '2026-07-04': [ { who: 'off', start: null, end: null, title: 'Taylor OFF — July 4th', note: '' } ],
+  '2026-07-04': [ // Saturday — July 4th
+    { who: 'off',  start: null, end: null, title: 'Taylor OFF — July 4th', note: '' },
+    { who: 'gabe', start: null, end: null, title: 'Gabe has Phoenix', note: '' } ],
   '2026-07-05': [ { who: 'off', start: null, end: null, title: 'OFF', note: 'No scheduled coverage.' } ],
 
   /* ===== Week of July 6–12 ===== */

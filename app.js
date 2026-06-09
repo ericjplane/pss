@@ -106,7 +106,9 @@
   function renderLegend() {
     const legend = document.getElementById('legend');
     legend.innerHTML = '';
-    Object.values(CAREGIVERS).forEach(function (c) {
+    Object.values(CAREGIVERS)
+      .filter(function (c) { return c.inLegend !== false; }) // hide flagged entries
+      .forEach(function (c) {
       const item = document.createElement('div');
       item.className = 'legend__item';
       item.innerHTML =
