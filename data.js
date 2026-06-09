@@ -88,8 +88,8 @@ const SCHEDULE = {
     { who: 'off',  start: null, end: null, title: 'Taylor OFF', note: '' },
     { who: 'gabe', start: null, end: null, title: 'Gabe has Phoenix', note: '' } ],
   '2026-06-20': [ // Saturday
-    { who: 'jackie', start: null, end: null, title: 'Pickup from Gabe',
-      note: 'Jackie picks up Phoenix from Gabe on the way to the house.' },
+    { who: 'jackie', start: '07:30', end: null, title: 'Pickup from Gabe',
+      note: 'Jackie picks up Phoenix from Gabe’s at 7:30 AM on the way to the house.' },
     { who: 'taylor', start: '11:30', end: '19:00', title: 'Saturday care', note: '' } ],
   '2026-06-21': [ { who: 'off', start: null, end: null, title: 'OFF', note: 'No scheduled coverage.' } ],
 
@@ -113,7 +113,9 @@ const SCHEDULE = {
                   { who: 'camp',   start: '09:00', end: '15:00', title: 'Summer Camp',  note: '' },
                   { who: 'taylor', start: '15:00', end: '18:30', title: 'After-camp care',
                     note: 'Drop Phoenix to Gabe after shift.' } ],
-  '2026-06-27': [ { who: 'taylor', start: '11:30', end: '19:00', title: 'Saturday care',
+  '2026-06-27': [ { who: 'jackie', start: '07:30', end: null, title: 'Pickup from Gabe',
+                    note: 'Jackie picks up Phoenix from Gabe’s at 7:30 AM.' },
+                  { who: 'taylor', start: '11:30', end: '19:00', title: 'Saturday care',
                     note: 'Must be at the house 11:00 AM–2:00 PM for Jane’s birthday party.' } ],
   '2026-06-28': [ { who: 'off', start: null, end: null, title: 'OFF', note: 'No scheduled coverage.' } ],
 
@@ -134,9 +136,9 @@ const SCHEDULE = {
                   { who: 'pixie',  start: '15:00', end: null,    title: 'Pickup from camp',
                     note: 'Pixie picks up Phoenix from camp at 3:00 PM.' } ],
   '2026-07-03': [ // Friday
-    { who: 'off',    start: null,    end: null,    title: 'Taylor OFF', note: '' },
-    { who: 'jackie', start: '07:30', end: null,    title: 'Pickup from Gabe',
-      note: 'Jackie picks up Phoenix from Gabe at 7:30 AM, then stays late that evening.' } ],
+    { who: 'off',  start: null, end: null, title: 'Taylor OFF', note: '' },
+    { who: 'gabe', start: null, end: null, title: 'Gabe has Phoenix',
+      note: 'Jackie is off today.' } ],
   '2026-07-04': [ // Saturday — July 4th
     { who: 'off',  start: null, end: null, title: 'Taylor OFF — July 4th', note: '' },
     { who: 'gabe', start: null, end: null, title: 'Gabe has Phoenix', note: '' } ],
@@ -162,7 +164,9 @@ const SCHEDULE = {
                   { who: 'camp',   start: '09:00', end: '15:00', title: 'Summer Camp',  note: '' },
                   { who: 'taylor', start: '15:00', end: '18:30', title: 'After-camp care',
                     note: 'Drop Phoenix to Gabe after shift.' } ],
-  '2026-07-11': [ { who: 'taylor', start: '11:30', end: '19:00', title: 'Saturday care', note: '' } ],
+  '2026-07-11': [ { who: 'jackie', start: '07:30', end: null, title: 'Pickup from Gabe',
+                    note: 'Jackie picks up Phoenix from Gabe’s at 7:30 AM.' },
+                  { who: 'taylor', start: '11:30', end: '19:00', title: 'Saturday care', note: '' } ],
   '2026-07-12': [ { who: 'off', start: null, end: null, title: 'OFF', note: 'No scheduled coverage.' } ],
 
   /* ===== Week of July 13–19 ===== */
@@ -185,7 +189,9 @@ const SCHEDULE = {
                   { who: 'camp',   start: '09:00', end: '15:00', title: 'Summer Camp',  note: '' },
                   { who: 'taylor', start: '15:00', end: '18:30', title: 'After-camp care',
                     note: 'Drop Phoenix to Gabe after shift.' } ],
-  '2026-07-18': [ { who: 'taylor', start: '11:30', end: '19:00', title: 'Saturday care', note: '' } ],
+  '2026-07-18': [ { who: 'jackie', start: '07:30', end: null, title: 'Pickup from Gabe',
+                    note: 'Jackie picks up Phoenix from Gabe’s at 7:30 AM.' },
+                  { who: 'taylor', start: '11:30', end: '19:00', title: 'Saturday care', note: '' } ],
   '2026-07-19': [ { who: 'off', start: null, end: null, title: 'OFF', note: 'No scheduled coverage.' } ],
 
   /* ===== Week of July 20–26 ===== */
@@ -197,9 +203,10 @@ const SCHEDULE = {
                   { who: 'camp',   start: '09:00', end: '15:00', title: 'Summer Camp',  note: '' },
                   { who: 'pixie',  start: '15:00', end: null,    title: 'Pickup from camp',
                     note: 'Pixie picks up Phoenix from camp at 3:00 PM.' } ],
-  '2026-07-22': [ { who: 'taylor', start: '07:30', end: '09:00', title: 'Morning care', note: '' },
-                  { who: 'camp',   start: '09:00', end: '15:00', title: 'Summer Camp',  note: '' },
-                  { who: 'taylor', start: '15:00', end: '18:30', title: 'After-camp care', note: '' } ],
+  '2026-07-22': [ { who: 'off',  start: null,    end: null, title: 'Taylor OFF', note: '' },
+                  { who: 'camp', start: '09:00', end: '15:00', title: 'Summer Camp', note: '' },
+                  { who: 'gabe', start: '15:00', end: null,    title: 'Pickup from camp',
+                    note: 'Gabe picks up Phoenix from camp at 3:00 PM.' } ],
   '2026-07-23': [ { who: 'taylor', start: '07:30', end: '09:00', title: 'Morning care', note: '' },
                   { who: 'camp',   start: '09:00', end: '15:00', title: 'Summer Camp',  note: '' },
                   { who: 'pixie',  start: '15:00', end: null,    title: 'Pickup from camp',
@@ -209,7 +216,9 @@ const SCHEDULE = {
                     note: '🎉 Last day of camp!' },
                   { who: 'taylor', start: '15:00', end: '18:30', title: 'After-camp care',
                     note: 'Drop Phoenix to Gabe after shift.' } ],
-  '2026-07-25': [ { who: 'taylor', start: '11:30', end: '19:00', title: 'Saturday care', note: '' } ],
+  '2026-07-25': [ { who: 'jackie', start: '07:30', end: null, title: 'Pickup from Gabe',
+                    note: 'Jackie picks up Phoenix from Gabe’s at 7:30 AM.' },
+                  { who: 'taylor', start: '11:30', end: '19:00', title: 'Saturday care', note: '' } ],
   '2026-07-26': [ { who: 'off', start: null, end: null, title: 'OFF', note: 'No scheduled coverage.' } ],
 
   /* ===== Week of July 27 – August 2  (camp has ended) ===== */
