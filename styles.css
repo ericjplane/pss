@@ -1,0 +1,320 @@
+/* ============================================================================
+   PHOENIX SUMMER CALENDAR — STYLES
+   ----------------------------------------------------------------------------
+   Design notes:
+     • Summery palette: sky blue, sunshine, coral. Clean white cards.
+     • Subtle theme cues: a sunshine glow in the header, a "rollercoaster" wavy
+       divider, and a Rubik's-cube 3×3 grid in the header logo.
+     • Mobile-first: day cards stack on phones, become a 7-column grid on wide
+       screens. Generous spacing + large readable type.
+   ========================================================================== */
+
+/* ---- Design tokens (change these to re-skin the whole site) ---- */
+:root {
+  --sky-top:    #8FD3FF;   /* summer sky gradient */
+  --sky-bottom: #DFF4FF;
+  --sun:        #FFD54A;
+  --coral:      #FF7A66;
+  --ink:        #213044;   /* primary text */
+  --ink-soft:   #5C6B7E;   /* secondary text */
+  --card:       #FFFFFF;
+  --line:       #E6ECF2;
+  --shadow:     0 6px 20px rgba(33, 48, 68, 0.10);
+  --radius:     18px;
+  --maxw:       1180px;
+
+  /* Rubik's-cube accent colors used in the logo grid */
+  --rk1: #FF5A4D; --rk2: #FFB400; --rk3: #33B66B;
+  --rk4: #19B4C4; --rk5: #8E58D8; --rk6: #FF6FAE;
+
+  font-family: 'Quicksand', 'Baloo 2', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 500px at 80% -10%, rgba(255, 213, 74, 0.45), transparent 60%),
+    linear-gradient(180deg, var(--sky-top) 0%, var(--sky-bottom) 230px, #F6FBFF 480px);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===========================================================================
+   HEADER
+   =========================================================================== */
+.site-header {
+  position: relative;
+  overflow: hidden;
+  padding: 26px 20px 64px;
+}
+
+.header-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Rubik's-cube style 3×3 logo */
+.logo-cube {
+  width: 52px; height: 52px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 3px;
+  padding: 4px;
+  background: #20303f;
+  border-radius: 12px;
+  transform: rotate(-6deg);
+  box-shadow: var(--shadow);
+  flex: none;
+}
+.logo-cube i { border-radius: 3px; }
+.logo-cube i:nth-child(1){background:var(--rk1)} .logo-cube i:nth-child(2){background:var(--rk2)}
+.logo-cube i:nth-child(3){background:var(--rk3)} .logo-cube i:nth-child(4){background:var(--rk4)}
+.logo-cube i:nth-child(5){background:var(--rk5)} .logo-cube i:nth-child(6){background:var(--rk6)}
+.logo-cube i:nth-child(7){background:var(--rk2)} .logo-cube i:nth-child(8){background:var(--rk3)}
+.logo-cube i:nth-child(9){background:var(--rk1)}
+
+.titles h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.titles p {
+  margin: 2px 0 0;
+  color: var(--ink-soft);
+  font-weight: 600;
+  font-size: 0.98rem;
+}
+
+/* Decorative sun in the corner */
+.sun {
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 150px; height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, #FFE89A 0%, var(--sun) 55%, #FFC107 100%);
+  box-shadow: 0 0 60px rgba(255, 193, 7, 0.55);
+  pointer-events: none;
+}
+
+/* "Rollercoaster" wavy divider at the bottom of the header */
+.coaster {
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  width: 100%; height: 46px;
+  display: block;
+}
+
+/* ===========================================================================
+   TOOLBAR (legend + week navigation)
+   =========================================================================== */
+.toolbar {
+  max-width: var(--maxw);
+  margin: -8px auto 0;
+  padding: 0 20px;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px 18px;
+}
+.legend__item { display: flex; align-items: center; gap: 8px; }
+.legend__swatch {
+  width: 16px; height: 16px;
+  border-radius: 5px;
+  flex: none;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.55);
+}
+.legend__label { font-weight: 600; font-size: 0.92rem; color: var(--ink); }
+
+/* Week navigation row */
+.weeknav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 18px 0 4px;
+}
+.weeknav__label {
+  font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+  font-weight: 700;
+  text-align: center;
+  flex: 1;
+}
+.btn {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 16px;
+  box-shadow: var(--shadow);
+  transition: transform 0.08s ease, background 0.15s ease, opacity 0.15s ease;
+  white-space: nowrap;
+}
+.btn:hover:not(:disabled) { transform: translateY(-1px); background: #fff; }
+.btn:active:not(:disabled) { transform: translateY(0); }
+.btn:disabled { opacity: 0.4; cursor: default; }
+.btn--today { background: var(--coral); color: #fff; border-color: transparent; }
+.btn--icon { font-size: 1.2rem; padding: 8px 16px; }
+
+/* ===========================================================================
+   WEEK GRID + DAY CARDS
+   =========================================================================== */
+.week {
+  max-width: var(--maxw);
+  margin: 8px auto 0;
+  padding: 0 20px;
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: 1fr;   /* phones: stacked */
+  gap: 14px;
+  padding-bottom: 40px;
+}
+
+.day {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.day--weekend { background: #FBFDFF; }
+.day--today {
+  border-color: var(--coral);
+  box-shadow: 0 0 0 3px rgba(255, 122, 102, 0.25), var(--shadow);
+}
+
+.day__header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, #FFFFFF, #F7FBFF);
+}
+.day__weekday { font-weight: 700; font-size: 1rem; }
+.day__date { color: var(--ink-soft); font-weight: 600; font-size: 0.9rem; }
+.day__today-tag {
+  margin-left: auto;
+  background: var(--coral);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+
+.day__body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+.day__empty {
+  margin: 6px 4px;
+  color: #9AA7B4;
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+/* A single responsibility block, colored by caregiver */
+.block {
+  --block-color: #888;
+  border-left: 6px solid var(--block-color);
+  background: color-mix(in srgb, var(--block-color) 12%, #fff);
+  border-radius: 10px;
+  padding: 9px 11px;
+}
+.block--off {
+  background: repeating-linear-gradient(
+    45deg, #F4F6F8, #F4F6F8 8px, #EDEFF2 8px, #EDEFF2 16px);
+}
+.block__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.block__who {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: color-mix(in srgb, var(--block-color) 70%, var(--ink));
+}
+.block__time {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+.block__title { font-weight: 600; font-size: 0.95rem; margin-top: 2px; }
+.block__note {
+  margin-top: 4px;
+  font-size: 0.83rem;
+  color: var(--ink-soft);
+  line-height: 1.35;
+}
+
+/* Fallback for browsers without color-mix(): keep text readable on white. */
+@supports not (background: color-mix(in srgb, red 10%, white)) {
+  .block { background: #F7FAFC; }
+  .block__who { color: var(--ink); }
+}
+
+/* ===========================================================================
+   FOOTER
+   =========================================================================== */
+.site-footer {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 8px 20px 40px;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* ===========================================================================
+   RESPONSIVE LAYOUT
+   Phones: 1 column (default).  Tablets: 2–3 columns.  Desktop: 7 columns.
+   =========================================================================== */
+@media (min-width: 560px) {
+  .week-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 860px) {
+  .week-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (min-width: 1100px) {
+  /* Full week-at-a-glance: 7 equal columns */
+  .week-grid { grid-template-columns: repeat(7, 1fr); gap: 10px; }
+  .day__header { flex-direction: column; align-items: flex-start; gap: 2px; }
+  .day__today-tag { margin-left: 0; }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Mobile-friendly: scales correctly on phones & tablets -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phoenix’s Summer 2026 ☀️</title>
+  <meta name="description" content="Who's got Phoenix and when — summer 2026 caregiver calendar." />
+
+  <!-- Kid-friendly rounded fonts (falls back to system fonts if offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ====================== HEADER ====================== -->
+  <header class="site-header">
+    <div class="sun" aria-hidden="true"></div>
+
+    <div class="header-inner">
+      <!-- Rubik's-cube style logo (decorative) -->
+      <div class="logo-cube" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <div class="titles">
+        <h1>Phoenix’s Summer 2026</h1>
+        <p>Who’s got Phoenix — and when ☀️🎢</p>
+      </div>
+    </div>
+
+    <!-- "Rollercoaster" wavy track divider -->
+    <svg class="coaster" viewBox="0 0 1440 46" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,30 C160,4 240,4 360,26 C480,48 560,48 720,20 C880,-6 980,2 1080,28 C1200,58 1320,40 1440,18 L1440,46 L0,46 Z"
+            fill="#F6FBFF"/>
+    </svg>
+  </header>
+
+  <!-- ====================== TOOLBAR ====================== -->
+  <section class="toolbar" aria-label="Legend and week navigation">
+    <!-- Color legend — built automatically from CAREGIVERS in data.js -->
+    <div id="legend" class="legend" aria-label="Caregiver color key"></div>
+
+    <!-- Week navigation -->
+    <nav class="weeknav" aria-label="Week navigation">
+      <button id="prev-week" class="btn btn--icon" aria-label="Previous week">‹</button>
+      <button id="today-btn" class="btn btn--today">This Week</button>
+      <span id="week-label" class="weeknav__label" aria-live="polite"></span>
+      <button id="next-week" class="btn btn--icon" aria-label="Next week">›</button>
+    </nav>
+  </section>
+
+  <!-- ====================== CALENDAR ====================== -->
+  <main class="week">
+    <!-- The 7 day-cards for the current week are injected here by app.js -->
+    <div id="week-grid" class="week-grid"></div>
+  </main>
+
+  <footer class="site-footer">
+    Tip: use ‹ › or your keyboard arrow keys to change weeks.
+    To update the schedule, edit <strong>data.js</strong>.
+  </footer>
+
+  <!-- Load the schedule data FIRST, then the app that renders it. -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
