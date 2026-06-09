@@ -63,6 +63,9 @@ const SCHEDULE = {
       note: 'Taylor picks up Phoenix from Pixie’s at 6:00 PM and drives to Shauna’s house.' },
   ],
 
+  '2026-06-13': [ // Saturday
+    { who: 'taylor', start: '11:30', end: '19:00', title: 'Saturday care', note: '' } ],
+
   /* ===== Week of June 15–19 ===== */
   '2026-06-15': [ { who: 'taylor', start: '07:30', end: '09:00', title: 'Morning care', note: '' },
                   { who: 'camp',   start: '09:00', end: '15:00', title: 'Summer Camp',  note: '' },
