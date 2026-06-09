@@ -82,8 +82,9 @@ const SCHEDULE = {
                   { who: 'camp',   start: '09:00', end: '15:00', title: 'Summer Camp',  note: '' },
                   { who: 'pixie',  start: '15:00', end: null,    title: 'Pickup from camp',
                     note: 'Pixie picks up Phoenix from camp at 3:00 PM.' } ],
-  '2026-06-19': [ { who: 'taylor', start: '07:30', end: '09:00', title: 'Morning care', note: '' },
-                  { who: 'camp',   start: '09:00', end: '15:00', title: 'Summer Camp',  note: '' } ],
+  '2026-06-19': [ // Friday
+    { who: 'off',  start: null, end: null, title: 'Taylor OFF', note: '' },
+    { who: 'gabe', start: null, end: null, title: 'Gabe has Phoenix', note: '' } ],
   '2026-06-20': [ // Saturday
     { who: 'jackie', start: null, end: null, title: 'Pickup from Gabe',
       note: 'Jackie picks up Phoenix from Gabe on the way to the house.' },
